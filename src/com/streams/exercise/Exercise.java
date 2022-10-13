@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -40,6 +42,7 @@ public class Exercise {
         }
     }
 
+
     private static List<Student> getAll(){
 
         List<Student> studentList = Stream
@@ -61,6 +64,16 @@ public class Exercise {
         AtomicInteger i = new AtomicInteger(1);
         students.forEach(s -> s.setRollNo(i.getAndIncrement()));
         students.forEach(System.out::println);
+
+
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(2);
+        list.add(3);
+
+list.stream().collect(Collectors.groupingBy(Integer::intValue,Collectors.counting()));
+
 
         //  this method will give me Rank for all student on bais of marks,
         //  if marks are same use alphabital  ordering like amit
